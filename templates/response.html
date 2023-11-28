@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <style>
+        body{
+            background: url('https://img.freepik.com/foto-gratis/muro-hormigon-gris-claro_53876-89532.jpg') rgba(0, 0, 0, 0.3);
+            background-blend-mode: multiply;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg{
+            background-image: url('data:image/jpeg;base64,{{ file_contents }}');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .Mala{
+            color: red;
+        }
+        .Buena{
+            color: green;
+        }
+    </style>
+    
+    <div class="container w-75 bg-primary mt-5 mb-5 rounded shadow">
+        <div class="row align-items-stretch">
+            <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
+            <div class="col bg-white p-5 rounded-end">
+                <h2 class="fw-bold text-center py-4">Titulo: {{ title }}</h2>
+                
+                <div class="mb-4">
+                    <label for="correo" class="form-check-label"><b>Genero:</b> {{ genre }}</label>
+                </div>
+                <div class="mb-4">
+                    <label for="contraseña" class="form-check-label"><b>Fecha de Estreno:</b> {{ release_date }}</label>
+                </div>
+                <div class="mb-4">
+                    <label for="contraseña" class="form-check-label"><b>Voto promedio:</b> {{ vote_average }}%</label>
+                </div>
+                <div class="mb-4">
+                    <label for="contraseña" class="form-check-label"><b>Cantidad de votos:</b> {{ vote_count }}</label>
+                </div>
+                <div class="mb-4">
+                    <label for="contraseña" class="form-check-label"><b>Predicción:</b> <h2 class="{{ prediction_message }}"><b>{{ prediction_message }}</b></h2></label>
+                </div>
+                <br>
+                <a href="/"><input type="button" class="btn btn-secondary" value="Volver"></a>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

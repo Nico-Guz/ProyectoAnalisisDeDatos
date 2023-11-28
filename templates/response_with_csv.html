@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Respuesta con CSV</title>
+</head>
+<body>
+    <style>
+        body{
+            background: cornflowerblue;
+            background: linear-gradient(to right, #87CEEB, cornflowerblue);
+            font-family: 'Poppins', sans-serif;
+        }
+        table{
+            background-color: white;
+        }
+    </style>
+    
+    <h2>Tabla generada a partir del archivo CSV</h2><a href="/"><input type="button" value="Volver"></a>
+    {{ html_table | safe }}  <!-- Utilizar 'safe' para renderizar HTML sin escape -->
+</body>
+</html>

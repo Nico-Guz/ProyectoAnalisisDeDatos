@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+    <style>
+        body{
+            background: url('https://c4.wallpaperflare.com/wallpaper/621/859/641/peliculas-terror-wallpaper-preview.jpg') rgba(0, 0, 0, 0.3);
+            background-blend-mode: multiply;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+    
+    <div class="container p-5 my-4 bg-dark text-white">
+        <h1>Recomendación de Peliculas</h1>
+        <p>¡Brindanos los datos necesarios y te diremos si es una buena pelicula!</p>
+    </div>
+
+    <div class="container py-3 px-3" style="background-color: white;">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Ingresar datos de la pelicula:</h3>
+                    <span>(Si desea ingresar mas de una pelicula <a href="#" data-bs-toggle="modal" data-bs-target="#myModal">Click aquí</a>)</span>
+                </div>
+            </div>
+            
+            <form method="post" action="/submit_form/" class="mt-3" enctype="multipart/form-data">
+                <div class="row" style="margin-bottom: 1.5%;">
+                    <div class="col-md-6">
+                        <label for="title">Titulo:</label>
+                        <input type="text" name="title" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="genre">Genero:</label>
+                        <select class="form-select" name="genre" required>
+                            <option value="Acción">Acción</option>
+                            <option value="Aventura">Aventura</option>
+                            <option value="Comedia">Comedia</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Terror">Terror</option>
+                            <option value="Ciencia Ficción">Ciencia Ficción</option>
+                            <option value="Fantasía">Fantasía</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 1.5%;">
+                    <div class="col-md-6">
+                        <label for="release_date">Fecha de lanzamiento:</label>
+                        <input type="date" name="release_date" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="vote_average">Votación Promedio: (%)</label>
+                        <input type="number" name="vote_average" class="form-control" max="100" required>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 1.5%;">
+                    <div class="col-md-6">
+                        <label for="vote_count">Cantidad de votos:</label>
+                        <input type="number" name="vote_count" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="file_contents">Imagen de la pelicula:</label>
+                        <input type="file" name="file_contents"> 
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary ">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/submit_csv/" method="post" enctype="multipart/form-data">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Carga un archivo con varias peliculas</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+  
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="file" name="csv_file" accept=".csv" required> 
+                </div>
+  
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary">Subir</button>
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
